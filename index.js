@@ -28,9 +28,11 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  The difference between them is that counter 1 returning a function that increments the value of 'count' while counter2 is just returning the value of 'count' incremented ny itself.
+  'count' is declared inside the function for counter1 and outside the function for counter2.
+  counter 1's function was also saved to a variable, while counter2 is just a function that isn't assigned to a variable.
   2. Which of the two uses a closure? How can you tell?
-  
+  Counter 2 uses a closure as it has to reach outside of the function to access the variable of 'count'.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
 */
@@ -62,8 +64,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random() * 3);
 }
 
 
