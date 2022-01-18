@@ -37,7 +37,8 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
-  f
+  You would use counter1 if you want the variable 'count' to only be able to be accessed inside the counterMaker() function. 
+  You would use counter2 if you would want to reference the variable 'count' anywhere in your code as it exists outside of the function.
 */
 
 // counter1 code
