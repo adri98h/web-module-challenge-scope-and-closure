@@ -31,10 +31,13 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   The difference between them is that counter 1 returning a function that increments the value of 'count' while counter2 is just returning the value of 'count' incremented ny itself.
   'count' is declared inside the function for counter1 and outside the function for counter2.
   counter 1's function was also saved to a variable, while counter2 is just a function that isn't assigned to a variable.
+
   2. Which of the two uses a closure? How can you tell?
-  Counter 2 uses a closure as it has to reach outside of the function to access the variable of 'count'.
+  Counter 1 uses a closure because it has to go outside of the inner function (counter()), to access information for the variable 'count' in the outer function (counterMaker()) .
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+  f
 */
 
 // counter1 code
@@ -109,8 +112,8 @@ function getInningScore(inningCb) {
     Away: inningCb()
   }
 }
-console.log(getInningScore(inning));
-console.log(getInningScore(inning));
+// console.log(getInningScore(inning));
+// console.log(getInningScore(inning));
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
@@ -153,8 +156,24 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScoreCB, inningCB, numOfInns) {
+  const inningResults = [];
+  let homeScore = 0;
+  let awayScore = 0;
+
+for (let i = 0; i < numOfInns; i++){
+  const x = getInningScoreCB(inningCB)
+  homeScore = homeScore + x.Home;
+  awayScore = awayScore + x.Away;
+  inningResults.push(`Inning ${i}: Home: ${x.Home} - Away: ${x.Away} `)
+  }
+
+if (homeScore === awayScore){
+   inningResults.push(`This game will require extra innings: Home ${homeScore} - Away ${awayScore}`)
+} else {inningResults.push(`Final Score: Home ${homeScore} - Away ${awayScore}`)
+}
+
+return inningResults;
 }
 
 
